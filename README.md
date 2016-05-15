@@ -16,3 +16,5 @@ We have given some inputs but if you want to give any others, please feel free t
 To run or test your files, run the command :-
 cargo build
 cargo run input_file.txt
+
+To test or run the library, download the zipped repo to your system.Extract it and do the above changes. After adding your modules and other files, run the main.rs or do cargo build and cargo run input_file.txt
