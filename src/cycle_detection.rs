@@ -30,11 +30,11 @@ fn input() -> i32 {
 static mut NTHREADS180 : i32 = 30;
 static mut cnt180: i32 = 1;
 static mut n180: i32 = 0;
-static mut adj180: [[i32; 500]; 500] = [[0 ; 500]; 500];
+static mut adj180: [[i32; 350]; 350] = [[0 ; 350]; 350];
 static mut cycle_found180: bool = false;
-static mut visited180: [bool; 500] = [false; 500];
+static mut visited180: [bool; 350] = [false; 350];
 //static mut queue:VecDeque<Thread> = VecDeque::new();
-pub fn cycle_detection(mat134180: &mut [[i32; 500]; 500], n1: i32) {
+pub fn cycle_detection(mat134180: &mut [[i32; 350]; 350], n1: i32) {
 	unsafe {
 		//n = input();
 		//let e: i32 = input();

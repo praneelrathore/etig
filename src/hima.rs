@@ -8,10 +8,10 @@ use std::env;
 
 //---------Static Declaration----------------//
 
-static mut xs: [[i32; 500]; 500] = [[0; 500]; 500];
-static mut temp: [[i32; 500]; 500] = [[0; 500]; 500];
+static mut xs: [[i32; 350]; 350] = [[0; 350]; 350];
+static mut temp: [[i32; 350]; 350] = [[0; 350]; 350];
 static mut n : i32 = 0;
-static mut stack: [i32; 500] = [0; 500];
+static mut stack: [i32; 350] = [0; 350];
 
 
 
@@ -20,12 +20,12 @@ static mut stack: [i32; 500] = [0; 500];
 
 fn timestamp () -> f64 {
     let timespec = time::get_time();
-    // 1459440009.113178
+    // 1459435009.113178
     let mills: f64 = timespec.sec as f64 + (timespec.nsec as f64 / 1000.0 / 1000.0 / 1000.0 );
     mills
 }
 
-fn tp_sort(visited: &mut [i32; 500], i: usize, index: &mut usize) {
+fn tp_sort(visited: &mut [i32; 350], i: usize, index: &mut usize) {
 unsafe {
 	visited[i as usize] = 1;
 	for j in 0..n {
@@ -40,7 +40,7 @@ unsafe {
 }
 }
 
-pub fn func(graph1 : &mut [[i32;500];500], n1:i32) {
+pub fn func(graph1 : &mut [[i32;350];350], n1:i32) {
 unsafe {
 	for i in 0..n1 {
 		for j in 0..n1 {
@@ -76,7 +76,7 @@ unsafe {
 		println!("");
 	}
 	let mut index = 0; // index of stack
-	let mut visited: [i32; 500] = [0; 500]; // visited array
+	let mut visited: [i32; 350] = [0; 350]; // visited array
 	for i in 0..n {
 		if visited[i as usize] == 0 {
 			//println!("{}",i);	
@@ -121,7 +121,7 @@ unsafe {
 	//----------------------------THREAD------------------------------------
 	println!("thread 1");
 	let data = Arc::new(Mutex::new((xs, temp)));
-	
+	//println!("step1");
 	let data = data.clone();	
 	let t1 = thread::spawn( move || {
 		//let mut data = data.lock().unwrap();
@@ -142,7 +142,7 @@ unsafe {
 		}
 	
 	});
-
+	//println!("step 2");
 	let data = data.clone();
 	let t2 = thread::spawn( move || {
 		//let mut data = data.lock().unwrap();	
@@ -178,7 +178,7 @@ unsafe {
 
 // creating stack as array
 	let mut index = 0; // index of stack
-	let mut visited: [i32; 500] = [0; 500]; // visited array
+	let mut visited: [i32; 350] = [0; 350]; // visited array
 	for i in 0..n {
 		if visited[i as usize] == 0 {
 			//println!("{}",i);	

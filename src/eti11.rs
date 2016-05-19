@@ -31,7 +31,7 @@ fn timestamp () -> f64 {
     mills
 }
 
-pub fn input(mat : & mut [[i32;500];500], n:i32) -> bool{
+pub fn input(mat : & mut [[i32;350];350], n:i32) -> bool{
 	let mut v:Vec<Vec<i32>> = Vec::new();
 	for i in 0..n{
 		let mut v1:Vec<i32> = Vec::new(); 
@@ -83,7 +83,7 @@ fn findTheNode_serial(mut v : &Vec<Vec<i32>>, nodeA:i32, nodeB:i32) -> bool{
 
 	   let mut cnt:i32 = 0;
 	
-	   if v.len() > 500 {
+	   if v.len() > 350 {
 	   	for ss in &visited {
 			for jj in &visited{
 	   			cnt = cnt + 1;

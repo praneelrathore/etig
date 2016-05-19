@@ -33,7 +33,7 @@ impl PartialOrd for QueNode {
 }
 
 const  INF: u32 = 999999999;
-static mut output : [[u32; 500]; 500] = [[0; 500]; 500];
+static mut output : [[u32; 350]; 350] = [[0; 350]; 350];
 
 
 fn find_shortest_path(start:u32, nodes: u32, adj_matrix: &Vec<Vec<u32>> )   {
@@ -84,7 +84,7 @@ fn find_shortest_path(start:u32, nodes: u32, adj_matrix: &Vec<Vec<u32>> )   {
 }
 
 //pub fn johnson(adj_list: &Vec<Vec<u32>>, nodes: usize)
-pub fn johnson(their_array: &mut [[i32; 500]; 500], node: i32)
+pub fn johnson(their_array: &mut [[i32; 350]; 350], node: i32)
 {
 
    let mut nodes: usize = node as usize;     

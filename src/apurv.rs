@@ -21,7 +21,7 @@ fn input() -> i32 {
 }
 
 
-pub fn count_ways(mat: &mut [[i32; 500]; 500], n: i32){
+pub fn count_ways(mat: &mut [[i32; 350]; 350], n: i32){
 	let u: i32 = input();
 	let v: i32 = input();
 	let k: i32 = input();

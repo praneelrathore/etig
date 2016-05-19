@@ -11,17 +11,17 @@ use std::time::Duration;
 //extern crate time;
 //use time::PreciseTime;
 
-static mut it_058_adj_matrix: [[usize; 500]; 500] = [[0; 500]; 500];
+static mut it_058_adj_matrix: [[usize; 350]; 350] = [[0; 350]; 350];
 static mut it_058_nodes:usize = 0;
-static mut it_058_degree: [usize; 500] = [0; 500];
-static mut it_058_sort: [usize; 500] = [0; 500];
-static mut it_058_color: [usize; 500] = [0; 500];
-static mut it_058_u:[usize; 500] = [0; 500];
-static mut it_058_d2_matrix: [[usize; 500]; 500] = [[0; 500]; 500];
-static mut it_058_forbidden: [[usize; 500]; 500] = [[0; 500]; 500];	// n * (2n - 1)
-static mut it_058_cnt: [usize; 500] = [0; 500];
+static mut it_058_degree: [usize; 350] = [0; 350];
+static mut it_058_sort: [usize; 350] = [0; 350];
+static mut it_058_color: [usize; 350] = [0; 350];
+static mut it_058_u:[usize; 350] = [0; 350];
+static mut it_058_d2_matrix: [[usize; 350]; 350] = [[0; 350]; 350];
+static mut it_058_forbidden: [[usize; 350]; 350] = [[0; 350]; 350];	// n * (2n - 1)
+static mut it_058_cnt: [usize; 350] = [0; 350];
 
-pub fn radiocoloring (mat_110: &mut [[i32; 500]; 500], n: i32) {	
+pub fn radiocoloring (mat_110: &mut [[i32; 350]; 350], n: i32) {	
 	unsafe{
 
 		for it_058_i in 0..it_058_nodes {

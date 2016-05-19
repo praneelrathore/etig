@@ -6,13 +6,13 @@ use std::fs::File;
 use std::io::{BufRead,BufReader,Read,stdin};
 use std::env;
 
-static mut graph_146 : [[i32; 500]; 500] = [[0; 500]; 500];
-static mut level_146:[i32; 500] = [-1;500];
-static mut visited_146:[i32; 500] = [0; 500];
-static mut mat_146 : [[i32; 500]; 500] = [[0;500];500];//matrix
-static mut levsize_146:[i32; 500] = [-1; 500];
+static mut graph_146 : [[i32; 350]; 350] = [[0; 350]; 350];
+static mut level_146:[i32; 350] = [-1;350];
+static mut visited_146:[i32; 350] = [0; 350];
+static mut mat_146 : [[i32; 350]; 350] = [[0;350];350];//matrix
+static mut levsize_146:[i32; 350] = [-1; 350];
 static mut maxlevel_146 :i32 = 0;
-static mut queue_146 : [i32; 500] = [0; 500];
+static mut queue_146 : [i32; 350] = [0; 350];
 static mut n_146 : i32 = 0;
 static mut front_146 : i32 = 0;
 static mut rear_146 : i32 = 0;
@@ -170,7 +170,7 @@ fn bfs_146 (root: i32) {
 
 }
 
-pub fn solve_146(graph1: &mut [[i32;500];500],n : i32) {
+pub fn solve_146(graph1: &mut [[i32;350];350],n : i32) {
     unsafe{
     for i in 0..n {
         for j in 0..n {
@@ -195,12 +195,12 @@ pub fn solve_146(graph1: &mut [[i32;500];500],n : i32) {
         //println!("Number of test cases : {}",t2);
         //while t2>0 {
             //---------initializations---------------------
-                level_146 = [-1;500];
-                visited_146 = [0; 500];
-                levsize_146 = [-1;500];
-                queue_146 = [0; 500];
-                graph_146 = [[0;500];500];
-                mat_146 = [[0;500];500];
+                level_146 = [-1;350];
+                visited_146 = [0; 350];
+                levsize_146 = [-1;350];
+                queue_146 = [0; 350];
+                graph_146 = [[0;350];350];
+                mat_146 = [[0;350];350];
                 front_146 = 0;
                 rear_146 = 0;
                 maxlevel_146 = 0;
@@ -242,7 +242,7 @@ pub fn solve_146(graph1: &mut [[i32;500];500],n : i32) {
 
 fn main () {
     unsafe{
-        let mut graph1 : [[i32; 500]; 500] = [[0; 500]; 500];
+        let mut graph1 : [[i32; 350]; 350] = [[0; 350]; 350];
         let n :i32;
         let args:Vec<_> = env::args().collect();
         if args.len()!=2{
@@ -254,12 +254,12 @@ fn main () {
         //println!("Number of test cases : {}",t2);
         //while t2>0 {
             //---------initializations---------------------
-                level_146 = [-1;500];
-                visited_146 = [0; 500];
-                levsize_146 = [-1;500];
-                queue_146 = [0; 500];
-                graph_146 = [[0;500];500];
-                mat_146 = [[0;500];500];
+                level_146 = [-1;350];
+                visited_146 = [0; 350];
+                levsize_146 = [-1;350];
+                queue_146 = [0; 350];
+                graph_146 = [[0;350];350];
+                mat_146 = [[0;350];350];
                 front_146 = 0;
                 rear_146 = 0;
                 maxlevel_146 = 0;

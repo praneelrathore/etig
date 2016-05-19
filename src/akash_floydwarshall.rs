@@ -1,8 +1,8 @@
 use std::io;
 use std::thread;
-static mut dist_207:[[i32; 500]; 500] = [[0; 500]; 500];
+static mut dist_207:[[i32; 350]; 350] = [[0; 350]; 350];
 
-pub fn floydwarshall_207(inputx: &mut [[i32; 500]; 500],n: i32) {                               
+pub fn floydwarshall_207(inputx: &mut [[i32; 350]; 350],n: i32) {                               
                                
   unsafe{
   let NTHREADS: i32 = 4; 

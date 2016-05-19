@@ -5,8 +5,8 @@ use std::io::{BufRead,BufReader,Read,stdin};
 use std::time::{Duration, Instant};
 use std::path::Path;
 
-static mut Graph054:[[i32; 500]; 500] = [[0; 500];500];
-static mut visited054:[i32; 500]= [0;500];
+static mut Graph054:[[i32; 350]; 350] = [[0; 350];350];
+static mut visited054:[i32; 350]= [0;350];
 static mut n054:i32 = 0;
 static mut nn054:usize = 0;
 static mut DepthOfTree054 :i32 = 0;
@@ -29,7 +29,7 @@ static mut LastNodevisited054 :i32=0;
 	let mut trimmed = input_text.trim();
 	let mut nn054n: i32 = trimmed.parse().expect("can't parse number");
 	println!("Number of Nodes : {}", nn054n);
-	let mut dummy :[[i32;500];500] = [[0;500];500];
+	let mut dummy :[[i32;350];350] = [[0;350];350];
 
 	let mut i:i32=0;
 	unsafe{
@@ -64,11 +64,11 @@ static mut LastNodevisited054 :i32=0;
 	}
 }
 */
-pub fn caller_54 (dummy : &mut [[i32; 500]; 500], n : i32) {
+pub fn caller_54 (dummy : &mut [[i32; 350]; 350], n : i32) {
 		
 	unsafe{
-			for i in 0..500 {
-				for j in 0..500 {
+			for i in 0..350 {
+				for j in 0..350 {
 					Graph054[i as usize][j as usize] = dummy[i as usize][j as usize]; 
 				}		
 			}

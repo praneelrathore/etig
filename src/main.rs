@@ -10,7 +10,7 @@ use std::collections::VecDeque;
 use std::time::Duration;
 use std::env;
 
-static mut gra: [[i32;500];500] = [[0;500];500];
+static mut gra: [[i32;350];350] = [[0;350];350];
 
 use etig::samarth;
 use etig::praneel;
@@ -89,10 +89,10 @@ fn main() {
    //eti11::input(&mut gra,na);
    //apurv::count_ways(&mut gra, na);
    //rahul_073::conn_comp_073(&mut gra, na);
-   //kamal::caller_54(&mut gra, na);
+  // kamal::caller_54(&mut gra, na);
    //akash_floydwarshall::floydwarshall_207(&mut gra, na);
    //sameer::johnson(&mut gra, na);
-   //hima::func(&mut gra, na);
+  //hima::func(&mut gra, na);
    //cycle_detection::cycle_detection(&mut gra, na);
 }
     

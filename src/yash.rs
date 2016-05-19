@@ -10,10 +10,10 @@ use std::env;
 //use time::PreciseTime;
 
 
-static mut ans_105 : [i32; 500] = [0;500];
-static mut parent_105 : [i32; 500] = [-1; 500];
-static mut graph_105 : [[i32; 500]; 500]=[[0; 500]; 500];
-static mut findset_105 : [[i32; 2]; 500] = [[0; 2]; 500];
+static mut ans_105 : [i32; 350] = [0;350];
+static mut parent_105 : [i32; 350] = [-1; 350];
+static mut graph_105 : [[i32; 350]; 350]=[[0; 350]; 350];
+static mut findset_105 : [[i32; 2]; 350] = [[0; 2]; 350];
 
 static mut s1_105 : i32 = 0;
 static mut s2_105 : i32 = 0;
@@ -197,12 +197,12 @@ fn union_105 (x: i32, y: i32) {
  	}
 }
 
-pub fn caller_105 (dummy : &mut [[i32; 500]; 500], n : i32) {
+pub fn caller_105 (dummy : &mut [[i32; 350]; 350], n : i32) {
 	unsafe {
 				
 			
-			for i in 0..500 {
-				for j in 0..500 {
+			for i in 0..350 {
+				for j in 0..350 {
 					graph_105[i as usize][j as usize] = dummy[i as usize][j as usize]; 
 				}		
 			}
@@ -261,7 +261,7 @@ pub fn caller_105 (dummy : &mut [[i32; 500]; 500], n : i32) {
 
 /*fn main() {
 	unsafe {
-		let mut dummy :[[i32;500];500] = [[0;500];500];
+		let mut dummy :[[i32;350];350] = [[0;350];350];
 		let mut n:i32 = 0;
 	    	caller_105(dummy, n);
 	}

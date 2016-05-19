@@ -137,9 +137,9 @@ Clone+Hash+Eq
 }
 
 
-static mut adjMatrix_073:[[i32; 500]; 500] = [[0; 500];500];
+static mut adjMatrix_073:[[i32; 350]; 350] = [[0; 350];350];
 
-pub fn conn_comp_073(matrix: &mut [[i32; 500]; 500], n_tmp: i32) -> () {
+pub fn conn_comp_073(matrix: &mut [[i32; 350]; 350], n_tmp: i32) -> () {
     unsafe {	
 	let mut n = n_tmp as i32;	
 	for i in 0..n { 
@@ -291,7 +291,7 @@ fn main() {
     
    
 	println!("1");
-	    let mut test:[[i32; 500]; 500] = [[0; 500];500]; 
+	    let mut test:[[i32; 350]; 350] = [[0; 350];350]; 
 	    
 	   test[0][1] = 1; test[1][0] = 1;
 	   test[3][2] = 1; test[2][3] = 1;

@@ -7,9 +7,9 @@ use std::fs::File;
 use std::io::{BufRead,BufReader,Read,stdin}; 
 use std::env; 
  
-static mut dist1_062:[[i32; 500]; 500] = [[0; 500];500]; 
-static mut v_062:[[i32; 500]; 500] = [[0; 500];500]; 
-static mut tmp_062:[i32;500]=[0;500]; 
+static mut dist1_062:[[i32; 350]; 350] = [[0; 350];350]; 
+static mut v_062:[[i32; 350]; 350] = [[0; 350];350]; 
+static mut tmp_062:[i32;350]=[0;350]; 
 static mut n_062:i32 = 0; 
 fn input_062() -> i32 { 
     let mut input_text = String::new(); 
@@ -68,7 +68,7 @@ fn topologicalsort_062(mut used: &mut Vec<i32>,mut ans : &mut Vec<i32>,i: i32) -
     } 
 } 
  
-pub fn solve_062(matr: &mut [[i32; 500]; 500], x__1: i32) -> () { 
+pub fn solve_062(matr: &mut [[i32; 350]; 350], x__1: i32) -> () { 
         unsafe {   
 		n_062=x__1;
 		for i in 0..n_062 { 

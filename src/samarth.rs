@@ -8,12 +8,12 @@ use std::sync::mpsc;
 use std::collections::VecDeque;
 use std::time::Duration;
 
-static mut dist_110: [i32; 500] = [9999999; 500];
-static mut source_110: [i32; 500] = [0; 500];
-static mut dest_110: [i32; 500] = [0; 500];
-static mut weight_110: [i32; 500] = [0; 500];
-static mut adj_110: [[i32; 500]; 500] = [[0; 500]; 500];
-pub fn bellman_ford_110(mat_110: &mut [[i32; 500]; 500], n: i32) {
+static mut dist_110: [i32; 350] = [9999999; 350];
+static mut source_110: [i32; 350] = [0; 350];
+static mut dest_110: [i32; 350] = [0; 350];
+static mut weight_110: [i32; 350] = [0; 350];
+static mut adj_110: [[i32; 350]; 350] = [[0; 350]; 350];
+pub fn bellman_ford_110(mat_110: &mut [[i32; 350]; 350], n: i32) {
 unsafe{
   	for i in 0..n {
       	for j in 0..n {

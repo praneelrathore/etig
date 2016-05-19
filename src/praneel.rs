@@ -8,16 +8,16 @@ use std::env;
 //extern crate time;
 //use time::PreciseTime;
 
-static mut adj_034:[[i32; 500]; 500] = [[0; 500];500];
+static mut adj_034:[[i32; 350]; 350] = [[0; 350];350];
 static mut n_034:i32 = 0;
-static mut order_034:[[i32; 500]; 500] = [[999; 500];500];
+static mut order_034:[[i32; 350]; 350] = [[999; 350];350];
 static mut irow_034:i32=0;
-static mut icol_034:[i32;500]=[0;500];
-static mut vis_034:[[i32; 500]; 500] = [[0; 500];500];
-static mut printed_034:[i32; 500] = [0; 500];
+static mut icol_034:[i32;350]=[0;350];
+static mut vis_034:[[i32; 350]; 350] = [[0; 350];350];
+static mut printed_034:[i32; 350] = [0; 350];
 static mut linecount_034:i32=0;
 static mut assigned_034:i32=-1;
-static mut children_034:[usize; 500]= [0;500];
+static mut children_034:[usize; 350]= [0;350];
 
 fn assignedtask_034(root:usize, idx:usize) {
 	unsafe{	
@@ -33,23 +33,23 @@ fn assignedtask_034(root:usize, idx:usize) {
 	}
 }
 
-pub fn dfsutil_034(local_adj_034: &mut [[i32; 500]; 500], local_nodes_034:i32) {
+pub fn dfsutil_034(local_adj_034: &mut [[i32; 350]; 350], local_nodes_034:i32) {
 	/*unsafe{
     	n_034=0;
     	irow_034=0;
     	assigned_034=-1;
-    	for izero in 0..500 {
-    		for jzero in 0..500 {
+    	for izero in 0..350 {
+    		for jzero in 0..350 {
     			adj_034[izero as usize][jzero as usize]=0;
     			order_034[izero as usize][jzero as usize]=0;
     			vis_034[izero as usize][jzero as usize]=0;
     		}
     	}
-    	for izero in 0..500 {
+    	for izero in 0..350 {
     		icol_034[izero as usize]=0;
     		printed_034[izero as usize]=0;
     	}
-    	for izero in 0..500 {
+    	for izero in 0..350 {
     		children_034[izero as usize]=0;
     	}
 	}*/
@@ -103,7 +103,7 @@ pub fn dfsutil_034(local_adj_034: &mut [[i32; 500]; 500], local_nodes_034:i32) {
 				let mut flag2:i32=0;
 				for s in 0..index {
 					if printed_034[s as usize]==(children_034[i as usize] as i32) {
-						flag2=500;
+						flag2=350;
 						break;
 					}
 				}
@@ -111,16 +111,16 @@ pub fn dfsutil_034(local_adj_034: &mut [[i32; 500]; 500], local_nodes_034:i32) {
 					printed_034[index as usize]=children_034[i as usize] as i32;
 					index+=1;
 					
-					for j in 0..500 {
+					for j in 0..350 {
 						if order_034[i as usize][j as usize]!=999 {
 							let mut flag:i32=0;
 							for k in 0..index {
 								if order_034[i as usize][j as usize]==printed_034[k as usize] {
-									flag=500;
+									flag=350;
 									break;
 								}
 							}
-							if flag!=500 {
+							if flag!=350 {
 								printed_034[index as usize]=order_034[i as usize][j as usize];
 								index+=1;
 							}
@@ -256,7 +256,7 @@ fn get_graph_034<R:Read>(reader:R) {
     let file2 = File::open(&args[1]).expect("Error");
 	//println!("ENTER THE ADJACENCY MATRIX");
     get_graph_034(file2);
-    let mut local_adj_034:[[i32; 500]; 500] = [[0; 500];500];
+    let mut local_adj_034:[[i32; 350]; 350] = [[0; 350];350];
     unsafe{
     	for i in 0..n_034 {
     	for j in 0..n_034 {
