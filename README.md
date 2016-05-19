@@ -18,3 +18,5 @@ cargo build
 cargo run input_file.txt
 
 To test or run the library, download the zipped repo to your system.Extract it and do the above changes. After adding your modules and other files, run the main.rs or do cargo build and cargo run input_file.txt
+
+Update -- use 350*350 array size now, for integration, and i32 only.
