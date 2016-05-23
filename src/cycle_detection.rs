@@ -30,11 +30,11 @@ fn input() -> i32 {
 static mut NTHREADS180 : i32 = 30;
 static mut cnt180: i32 = 1;
 static mut n180: i32 = 0;
-static mut adj180: [[i32; 350]; 350] = [[0 ; 350]; 350];
+static mut adj180: [[i32; 500]; 500] = [[0 ; 500]; 500];
 static mut cycle_found180: bool = false;
-static mut visited180: [bool; 350] = [false; 350];
+static mut visited180: [bool; 500] = [false; 500];
 //static mut queue:VecDeque<Thread> = VecDeque::new();
-pub fn cycle_detection(mat134180: &mut [[i32; 350]; 350], n1: i32) {
+pub fn cycle_detection(mat134180: &mut [[i32; 500]; 500], n1: i32) {
 	unsafe {
 		//n = input();
 		//let e: i32 = input();
@@ -54,8 +54,21 @@ pub fn cycle_detection(mat134180: &mut [[i32; 350]; 350], n1: i32) {
 				adj180[i as usize][j as usize] = mat134180[i as usize][j as usize]; 
 			}
 		}
+		
+		for i in 0..n180 {
+			for j in 0..i {
+				if adj180[i as usize][j as usize] != adj180[j as usize][i as usize] {
+					println!("not an undirected graph: wrong input!");
+					return;
+				}
+			}
+		}
+		
 		//let start = PreciseTime::now();
 		for i in 0..n180 {
+			if cycle_found180 {
+				break;
+			}
 			if !visited180[i as usize] {
 				dfs134180(i, -1i32);
 			}
@@ -77,9 +90,12 @@ fn dfs134180(crr_nod: i32, crr_par: i32) {
 		let mut children = vec![];
 		visited180[crr_nod as usize] = true;
 		if cycle_found180 {
-			return ;
+			return;
 		}
 		for i in 0..n180 {
+			if cycle_found180 {
+				return;
+			}
 			if adj180[crr_nod as usize][i as usize] == 1 && i != crr_par {
 				if visited180[i as usize] {
 					//println!("i = {}, crr_nod = {}, crr_par = {}", i, crr_nod, crr_par);
