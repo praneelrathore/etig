@@ -28,6 +28,9 @@ use etig::sameer;
 use etig::hima;
 use etig::cycle_detection;
 use etig::manav_final;
+use etig::bipartite_43_181;
+use etig::cyc_det_directed_y2k;
+
 
 fn get_node_173<R:Read>(reader:R)->i32 {
   let mut reader = BufReader::new(reader).lines();
@@ -96,6 +99,8 @@ fn main() {
   //hima::func(&mut gra, na);
    //cycle_detection::cycle_detection(&mut gra, na);
    //manav_final::solve_173(&mut gra, na);
+   //bipartite_43_181::check_bipartite(&mut gra, na);
+   //cyc_det_directed_y2k::cyc_det_directed_y2k(&mut gra, na);
 }
     
 	
