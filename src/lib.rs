@@ -17,7 +17,7 @@ pub mod d_raj_graph_coloring;
 pub mod rahlav;
 pub mod apurv;
 pub mod rahul_073;
-//pub mod kamal;
+pub mod kamal;
 pub mod akash_floydwarshall;
 pub mod sameer;
 pub mod hima;
