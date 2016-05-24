@@ -23,7 +23,7 @@ use etig::d_raj_graph_coloring;
 use etig::rahlav;
 use etig::apurv;
 use etig::rahul_073;
-//use etig::kamal;
+use etig::kamal;
 use etig::akash_floydwarshall;
 use etig::sameer;
 use etig::hima;
