@@ -83,7 +83,9 @@ fn main() {
   //parallel::cycle_detection(&mut gra, na);
    //parallel::solve_173(&mut gra, na);
    //parallel::check_bipartite(&mut gra, na);
-   parallel::cyc_det_directed_y2k(&mut gra, na);
+   //parallel::cyc_det_directed_y2k(&mut gra, na);
+   //parallel::check_tree(&mut gra, na);
+  // parallel::solve_146(&mut gra, na);
 }
 
 
