@@ -2213,58 +2213,6 @@ pub fn parallel_bfs_146(graph1: &mut [[i32;350];350],n : i32) {
 }
 
 
-//fn main () {
-pub fn solve_bfs(input: &mut [[i32; 350]; 350], nodes: i32)
-{
-    unsafe{
-        let mut graph1 : [[i32; 350]; 350] = [[0; 350]; 350];
-        let n :i32;
-        //let args:Vec<_> = env::args().collect();
-       // if args.len()!=2{
-      //      panic!("Error with file reading");
-      //  }
-       // let file = File::open(&args[1]).expect("Error");
-        //let mut t2 = get_node_146(file);
-        //ins+=1;
-        //println!("Number of test cases : {}",t2);
-        //while t2>0 {
-            //---------initializations---------------------
-                level_146 = [-1;350];
-                visited_146 = [0; 350];
-                levsize_146 = [-1;350];
-                queue_146 = [0; 350];
-                graph_146 = [[0;350];350];
-                mat_146 = [[0;350];350];
-                front_146 = 0;
-                rear_146 = 0;
-                maxlevel_146 = 0;
-            //-----------------------------
-
-
-            //t2 -= 1;
-           // let file1 = File::open(&args[1]).expect("Error");
-
-           // n = get_node_146(file1);
-            n = nodes;
-            //ins+=1;
-            println!("Number of nodes : {}",n);
-           // let file2 = File::open(&args[1]).expect("Error");
-
-            let mut k:i32;
-          //  k = get_graph_146(file2);
-            //ins+=n_146;
-            //println!("");
-
-            for i in 0..nodes {
-                for j in 0..nodes {
-                    graph1[i as usize][j as usize] = input[i as usize][j as usize];
-                }
-            }
-
-
-        parallel_bfs_146(&mut graph1,n);
-    }
-}
 
 fn assignedtask_034(root:usize, idx:usize) {
 	unsafe{	
