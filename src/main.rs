@@ -68,11 +68,10 @@ fn main() {
 
   //parallel::bellman_ford_110(&mut gra,na);
   // parallel::dfsutil_034(&mut gra, na);
-   //parallel::solve_bfs(&mut gra, na);
    //parallel::radiocoloring(&mut gra, na);
   // parallel::graphcoloring(&mut gra, na);
    //parallel::solve_062(&mut gra, na);
-   //parallel::caller_105(&mut gra, na);
+   //parallel::check_same_set_105(&mut gra, na);
    //parallel::input_1111(&mut gra,na);
    //parallel::count_ways(&mut gra, na);
    //parallel::conn_comp_073(&mut gra, na);
@@ -81,11 +80,11 @@ fn main() {
    //parallel::johnson(&mut gra, na);
   //parallel::func(&mut gra, na);
   //parallel::cycle_detection(&mut gra, na);
-   //parallel::solve_173(&mut gra, na);
+   //parallel::transitive_closure(&mut gra, na);
    //parallel::check_bipartite(&mut gra, na);
    //parallel::cyc_det_directed_y2k(&mut gra, na);
    //parallel::check_tree(&mut gra, na);
-  // parallel::solve_146(&mut gra, na);
+  // parallel::parallel_bfs_146(&mut gra, na);
 }
 
 

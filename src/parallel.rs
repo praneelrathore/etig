@@ -1751,7 +1751,7 @@ fn union_105 (x: i32, y: i32) {
  	}
 }
 
-pub fn caller_105 (dummy : &mut [[i32; 350]; 350], n : i32) {
+pub fn check_same_set_105 (dummy : &mut [[i32; 350]; 350], n : i32) {
 	unsafe {
 				
 			
@@ -1817,7 +1817,7 @@ pub fn caller_105 (dummy : &mut [[i32; 350]; 350], n : i32) {
 	unsafe {
 		let mut dummy :[[i32;350];350] = [[0;350];350];
 		let mut n:i32 = 0;
-	    	caller_105(dummy, n);
+	    	check_same_set_105(dummy, n);
 	}
 }*/
 
@@ -2137,7 +2137,7 @@ fn bfs_146 (mut root: i32) {
 
 }
 
-pub fn solve_146(graph1: &mut [[i32;350];350],n : i32) {
+pub fn parallel_bfs_146(graph1: &mut [[i32;350];350],n : i32) {
     unsafe{
     for i in 0..n {
         for j in 0..n {
@@ -2251,7 +2251,7 @@ pub fn solve_bfs(input: &mut [[i32; 350]; 350], nodes: i32)
             }
 
 
-        solve_146(&mut graph1,n);
+        parallel_bfs_146(&mut graph1,n);
     }
 }
 
