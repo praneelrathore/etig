@@ -1,4 +1,5 @@
 extern crate etig;
+
 use std::thread;
 use std::sync::{Arc, Mutex};
 use std::io;
@@ -30,6 +31,7 @@ use etig::cycle_detection;
 use etig::manav_final;
 use etig::bipartite_43_181;
 use etig::cyc_det_directed_y2k;
+use etig::istree;
 
 
 fn get_node_173<R:Read>(reader:R)->i32 {
@@ -71,11 +73,11 @@ fn main() {
 	if args.len()!=2 {
 		panic!("Error in reading");
 	}
-	
-    let file = File::open(&args[1]).expect("Error"); 
+
+    let file = File::open(&args[1]).expect("Error");
 //println!("g");
    let mut na: i32=get_node_173(file);
-    let file2  = File::open(&args[1]).expect("Error"); 
+    let file2  = File::open(&args[1]).expect("Error");
     let mut k:i32;
     k=get_graph_173(file2);
 	//println!("{},{}",na,k);
@@ -101,7 +103,8 @@ fn main() {
    //manav_final::solve_173(&mut gra, na);
    //bipartite_43_181::check_bipartite(&mut gra, na);
    //cyc_det_directed_y2k::cyc_det_directed_y2k(&mut gra, na);
+   istree::check_tree( &mut gra,na);
 }
-    
-	
+
+
 }

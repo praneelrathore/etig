@@ -25,3 +25,4 @@ pub mod cycle_detection;
 pub mod manav_final;
 pub mod bipartite_43_181;
 pub mod cyc_det_directed_y2k;
+pub mod istree;
