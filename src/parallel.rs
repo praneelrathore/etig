@@ -481,7 +481,7 @@ fn dfs_173(s : i32, d : i32) -> () {
 		}
 	}
 }
-pub fn solve_173( dummy: &mut [[i32; 350]; 350], n:i32 ) {
+pub fn transitive_closure( dummy: &mut [[i32; 350]; 350], n:i32 ) {
 	unsafe {
 		
 		
