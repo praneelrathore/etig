@@ -1,7 +1,6 @@
 [package]
-name = "etig"
+name = "algorithms"
 version = "0.1.0"
-authors = ["praneelrathore <praneelrathore@gmail.com>"]
 
 [dependencies]
 time="*"

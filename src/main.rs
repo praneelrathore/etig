@@ -1,4 +1,4 @@
-extern crate etig;
+extern crate algorithms;
 
 use std::thread;
 use std::sync::{Arc, Mutex};
@@ -13,7 +13,7 @@ use std::env;
 
 static mut gra: [[i32;350];350] = [[0;350];350];
 
-use etig::parallel;
+use algorithms::parallel;
 
 fn get_node_173<R:Read>(reader:R)->i32 {
   let mut reader = BufReader::new(reader).lines();
