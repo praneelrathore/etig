@@ -18,7 +18,7 @@ fn input_25() -> i32 {
 
     let trimmed = input_text.trim();
     match trimmed.parse::<i32>() {
-        Ok(i) => return i,//println!("your integer input: {}", i),
+        Ok(i) => return i,//println!("your integer input_1111: {}", i),
         Err(..) =>return 0,//println!("this was not an integer: {}", trimmed)
     };
     return 0;
@@ -31,7 +31,7 @@ fn timestamp () -> f64 {
     mills
 }
 
-pub fn input(mat : & mut [[i32;350];350], n:i32) -> bool{
+pub fn input_1111(mat : & mut [[i32;350];350], n:i32) -> bool{
 	let mut v:Vec<Vec<i32>> = Vec::new();
 	for i in 0..n{
 		let mut v1:Vec<i32> = Vec::new(); 

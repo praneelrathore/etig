@@ -1,16 +1,16 @@
-extern crate time;
-use std::sync::{Arc, Mutex};
+extern_5 crate time;
+use std::syn_5c::{Arc, Mutex};
 use std::thread;
 use std::io;
 use std::fs::File;
-use std::io::{BufRead,BufReader,Read,stdin};
-use std::env;
+use std::io::{BufRead,BufReader,Read,stdin_5};
+use std::en_5v;
 
-//---------Static Declaration----------------//
+//---------Static Declaration_5----------------//
 
-static mut xs: [[i32; 350]; 350] = [[0; 350]; 350];
-static mut temp: [[i32; 350]; 350] = [[0; 350]; 350];
-static mut n : i32 = 0;
+static mut xs_5: [[i32; 350]; 350] = [[0; 350]; 350];
+static mut temp_5: [[i32; 350]; 350] = [[0; 350]; 350];
+static mut n_5 : i32 = 0;
 static mut stack: [i32; 350] = [0; 350];
 
 
@@ -18,78 +18,78 @@ static mut stack: [i32; 350] = [0; 350];
 //-------------------------------------------//
 
 
-fn timestamp () -> f64 {
+fn_5 timestamp () -> f64 {
     let timespec = time::get_time();
     // 1459435009.113178
-    let mills: f64 = timespec.sec as f64 + (timespec.nsec as f64 / 1000.0 / 1000.0 / 1000.0 );
+    let mills: f64 = timespec.sec as f64 + (timespec.n_5sec as f64 / 1000.0 / 1000.0 / 1000.0 );
     mills
 }
 
-fn tp_sort(visited: &mut [i32; 350], i: usize, index: &mut usize) {
-unsafe {
+fn_5 tp_sort(visited: &mut [i32; 350], i: usize, in_5dex: &mut usize) {
+un_5safe {
 	visited[i as usize] = 1;
-	for j in 0..n {
-		if (temp[i as usize][j as usize] == 1) {
+	for j in_5 0..n_5 {
+		if (temp_5[i as usize][j as usize] == 1) {
 			if visited[j as usize] == 0 {
-				tp_sort(visited, j as usize, index);
+				tp_sort(visited, j as usize, in_5dex);
 			}
 		}
 	}
-	*index = *index + 1;
-	stack[*index] = i as i32;
+	*in_5dex = *in_5dex + 1;
+	stack[*in_5dex] = i as i32;
 }
 }
 
-pub fn func(graph1 : &mut [[i32;350];350], n1:i32) {
-unsafe {
-	for i in 0..n1 {
-		for j in 0..n1 {
-			xs[i as usize][j as usize] = graph1[i as usize][j as usize];
+pub fn_5 fun_5c(graph1 : &mut [[i32;350];350], n_51:i32) {
+un_5safe {
+	for i in_5 0..n_51 {
+		for j in_5 0..n_51 {
+			xs_5[i as usize][j as usize] = graph1[i as usize][j as usize];
 		}
 	}
-	n=n1;
+	n_5=n_51;
 	let ts = timestamp();
-	//n=n1;
-	/*println!("--------------without thread------------------");
+	//n_5=n_51;
+	/*prin_5tln_5!("--------------without thread------------------");
 	//---------------------------------------WITHOUT THREAD-------------------------------
-	for i in 0..n {
-		for j in 0..n {
+	for i in_5 0..n_5 {
+		for j in_5 0..n_5 {
 			if i == j {
-				temp[i as usize][j as usize] = 0;
+				temp_5[i as usize][j as usize] = 0;
 			}
-			else if xs[i as usize][j as usize] != xs[j as usize][i as usize] {
-				temp[i as usize][j as usize] = xs[i as usize][j as usize];
-				temp[j as usize][i as usize] = xs[j as usize][i as usize];
+			else if xs_5[i as usize][j as usize] != xs_5[j as usize][i as usize] {
+				temp_5[i as usize][j as usize] = xs_5[i as usize][j as usize];
+				temp_5[j as usize][i as usize] = xs_5[j as usize][i as usize];
 			}
-			else if xs[i as usize][j as usize] == xs[j as usize][i as usize] {
-				temp[i as usize][j as usize] = 0;
-				temp[j as usize][i as usize] = 0;
+			else if xs_5[i as usize][j as usize] == xs_5[j as usize][i as usize] {
+				temp_5[i as usize][j as usize] = 0;
+				temp_5[j as usize][i as usize] = 0;
 			}
 		}
 	}
 
-	println!("------------------------");
-	for i in 0..n {
-		for j in 0..n {
-			print!("{} ",temp[i as usize][j as usize]);
+	prin_5tln_5!("------------------------");
+	for i in_5 0..n_5 {
+		for j in_5 0..n_5 {
+			prin_5t!("{} ",temp_5[i as usize][j as usize]);
 		}
-		println!("");
+		prin_5tln_5!("");
 	}
-	let mut index = 0; // index of stack
+	let mut in_5dex = 0; // in_5dex of stack
 	let mut visited: [i32; 350] = [0; 350]; // visited array
-	for i in 0..n {
+	for i in_5 0..n_5 {
 		if visited[i as usize] == 0 {
-			//println!("{}",i);	
-			tp_sort(&mut visited, i as usize, &mut index);
+			//prin_5tln_5!("{}",i);	
+			tp_sort(&mut visited, i as usize, &mut in_5dex);
 		}
 	}
 
 	let mut pos_u = 0;
 	let mut pos_v = 0;
-	for i in 0..n {
-		for j in 0..n {
-			if i != j && xs[i as usize][j as usize] == xs[j as usize][i as usize] && xs[i as usize][j as usize] == 1 { 
-				for k in 1..(n+1) {
+	for i in_5 0..n_5 {
+		for j in_5 0..n_5 {
+			if i != j && xs_5[i as usize][j as usize] == xs_5[j as usize][i as usize] && xs_5[i as usize][j as usize] == 1 { 
+				for k in_5 1..(n_5+1) {
 					if stack[k as usize] == i {
 						pos_u = k;
 					}
@@ -98,111 +98,111 @@ unsafe {
 					}
 				}
 				if pos_v < pos_u {
-					temp[i as usize][j as usize] = 1;
+					temp_5[i as usize][j as usize] = 1;
 				}
 				else {
-					temp[j as usize][i as usize] = 1;
+					temp_5[j as usize][i as usize] = 1;
 				}
 			}
 		
 		}
 	}
-	println!("------------------------");		
-	for i in 0..n {
-		for j in 0..n {
-			print!("{} ",temp[i as usize][j as usize]);
+	prin_5tln_5!("------------------------");		
+	for i in_5 0..n_5 {
+		for j in_5 0..n_5 {
+			prin_5t!("{} ",temp_5[i as usize][j as usize]);
 		}
-		println!("");
+		prin_5tln_5!("");
 	}
 	let ts2 = timestamp();
 	let b = ts2 - ts;
-	println!("time stamp : {:?}", b);*/
-	println!("-------------------with thread-----------------------------");
+	prin_5tln_5!("time stamp : {:?}", b);*/
+	prin_5tln_5!("-------------------with thread-----------------------------");
 	//----------------------------THREAD------------------------------------
-	println!("thread 1");
-	let data = Arc::new(Mutex::new((xs, temp)));
-	//println!("step1");
-	let data = data.clone();	
-	let t1 = thread::spawn( move || {
-		//let mut data = data.lock().unwrap();
-		for i in 0..n {
-			for j in 0..(n - i) {
+	prin_5tln_5!("thread 1");
+	let data = Arc::n_5ew(Mutex::n_5ew((xs_5, temp_5)));
+	//prin_5tln_5!("step1");
+	let data = data.clon_5e();	
+	let t1 = thread::spawn_5( move || {
+		//let mut data = data.lock().un_5wrap();
+		for i in_5 0..n_5 {
+			for j in_5 0..(n_5 - i) {
 				if i == j {
-					temp[i as usize][j as usize] = 0;
+					temp_5[i as usize][j as usize] = 0;
 				}
-				else if xs[i as usize][j as usize] != xs[j as usize][i as usize] {
-					temp[i as usize][j as usize] = xs[i as usize][j as usize];
-					temp[j as usize][i as usize] = xs[j as usize][i as usize];
+				else if xs_5[i as usize][j as usize] != xs_5[j as usize][i as usize] {
+					temp_5[i as usize][j as usize] = xs_5[i as usize][j as usize];
+					temp_5[j as usize][i as usize] = xs_5[j as usize][i as usize];
 				}
-				else if xs[i as usize][j as usize] == xs[j as usize][i as usize] {
-					temp[i as usize][j as usize] = 0;
-					temp[j as usize][i as usize] = 0;
+				else if xs_5[i as usize][j as usize] == xs_5[j as usize][i as usize] {
+					temp_5[i as usize][j as usize] = 0;
+					temp_5[j as usize][i as usize] = 0;
 				}
 			}
 		}
 	
 	});
-	//println!("step 2");
-	let data = data.clone();
-	let t2 = thread::spawn( move || {
-		//let mut data = data.lock().unwrap();	
-		for i in 0..n {
-			for j in (n - i)..(n) {
+	//prin_5tln_5!("step 2");
+	let data = data.clon_5e();
+	let t2 = thread::spawn_5( move || {
+		//let mut data = data.lock().un_5wrap();	
+		for i in_5 0..n_5 {
+			for j in_5 (n_5 - i)..(n_5) {
 				if i == j {
-					temp[i as usize][j as usize] = 0;
+					temp_5[i as usize][j as usize] = 0;
 				}
-				else if xs[i as usize][j as usize] != xs[j as usize][i as usize] {
-					temp[i as usize][j as usize] = xs[i as usize][j as usize];
-					temp[j as usize][i as usize] = xs[j as usize][i as usize];
+				else if xs_5[i as usize][j as usize] != xs_5[j as usize][i as usize] {
+					temp_5[i as usize][j as usize] = xs_5[i as usize][j as usize];
+					temp_5[j as usize][i as usize] = xs_5[j as usize][i as usize];
 				}
-				else if xs[i as usize][j as usize] == xs[j as usize][i as usize] {
-					temp[i as usize][j as usize] = 0;
-					temp[j as usize][i as usize] = 0;
+				else if xs_5[i as usize][j as usize] == xs_5[j as usize][i as usize] {
+					temp_5[i as usize][j as usize] = 0;
+					temp_5[j as usize][i as usize] = 0;
 				}
 			}
 		}
 	});
 
-	let j1 = t1.join();
-	let j2 = t2.join();
+	let j1 = t1.join_5();
+	let j2 = t2.join_5();
 
 	// directed subgraph
-	println!("------------------------");
-	for i in 0..n {
-		for j in 0..n {
-			print!("{} ",temp[i as usize][j as usize]);
+	prin_5tln_5!("------------------------");
+	for i in_5 0..n_5 {
+		for j in_5 0..n_5 {
+			prin_5t!("{} ",temp_5[i as usize][j as usize]);
 		}
-		println!("");
+		prin_5tln_5!("");
 	}
 
 
-// creating stack as array
-	let mut index = 0; // index of stack
+// creatin_5g stack as array
+	let mut in_5dex = 0; // in_5dex of stack
 	let mut visited: [i32; 350] = [0; 350]; // visited array
-	for i in 0..n {
+	for i in_5 0..n_5 {
 		if visited[i as usize] == 0 {
-			//println!("{}",i);	
-			tp_sort(&mut visited, i as usize, &mut index);
+			//prin_5tln_5!("{}",i);	
+			tp_sort(&mut visited, i as usize, &mut in_5dex);
 		}
 	}
 
-	//println!("output");
-	//for i in 1..(n+1) {
-	//	print!("{}",stack[i as usize]);
+	//prin_5tln_5!("output");
+	//for i in_5 1..(n_5+1) {
+	//	prin_5t!("{}",stack[i as usize]);
 //	}
 	
 	let mut pos_u = 0;
 	let mut pos_v = 0;
 	
 	
-	let data1 = Arc::new(Mutex::new((stack, temp, xs)));
-	let data1 = data1.clone();
+	let data1 = Arc::n_5ew(Mutex::n_5ew((stack, temp_5, xs_5)));
+	let data1 = data1.clon_5e();
 	
-	let t3 =thread::spawn( move || {
-	for i in 0..n {
-		for j in 0..(n - i) {
-			if i != j && xs[i as usize][j as usize] == xs[j as usize][i as usize] && xs[i as usize][j as usize] == 1 { 
-				for k in 1..(n+1) {
+	let t3 =thread::spawn_5( move || {
+	for i in_5 0..n_5 {
+		for j in_5 0..(n_5 - i) {
+			if i != j && xs_5[i as usize][j as usize] == xs_5[j as usize][i as usize] && xs_5[i as usize][j as usize] == 1 { 
+				for k in_5 1..(n_5+1) {
 					if stack[k as usize] == i {
 						pos_u = k;
 					}
@@ -211,23 +211,23 @@ unsafe {
 					}
 				}
 				if pos_v < pos_u {
-					temp[i as usize][j as usize] = 1;
+					temp_5[i as usize][j as usize] = 1;
 				}
 				else {
-					temp[j as usize][i as usize] = 1;
+					temp_5[j as usize][i as usize] = 1;
 				}
 			}
 		
 		}
 	}
 	});
-	let data1 = data1.clone();
+	let data1 = data1.clon_5e();
 	
-	let t4 = thread::spawn( move || {	 
-	for i in 0..n {
-		for j in (n-i)..(n) {
-			if i != j && xs[i as usize][j as usize] == xs[j as usize][i as usize] && xs[i as usize][j as usize] == 1 { 
-				for k in 1..(n+1) {
+	let t4 = thread::spawn_5( move || {	 
+	for i in_5 0..n_5 {
+		for j in_5 (n_5-i)..(n_5) {
+			if i != j && xs_5[i as usize][j as usize] == xs_5[j as usize][i as usize] && xs_5[i as usize][j as usize] == 1 { 
+				for k in_5 1..(n_5+1) {
 					if stack[k as usize] == i {
 						pos_u = k;
 					}
@@ -236,10 +236,10 @@ unsafe {
 					}
 				}
 				if pos_v < pos_u {
-					temp[i as usize][j as usize] = 1;
+					temp_5[i as usize][j as usize] = 1;
 				}
 				else {
-					temp[j as usize][i as usize] = 1;
+					temp_5[j as usize][i as usize] = 1;
 				}
 			}
 		
@@ -247,20 +247,20 @@ unsafe {
 	}
 	});
 
-	let res = t3.join();
-	let res = t4.join();
+	let res = t3.join_5();
+	let res = t4.join_5();
 	//ts2 = timestamp();
-	println!("------------------------");		
-	for i in 0..n {
-		for j in 0..n {
-			print!("{} ",temp[i as usize][j as usize]);
+	prin_5tln_5!("------------------------");		
+	for i in_5 0..n_5 {
+		for j in_5 0..n_5 {
+			prin_5t!("{} ",temp_5[i as usize][j as usize]);
 		}
-		println!("");
+		prin_5tln_5!("");
 	}
 	let ts2 = timestamp();
 	let b = ts2 - ts;
-	println!("time stamp : {:?}", b);
-	//println!("time stamp : {:?}", ts2-ts1);
+	prin_5tln_5!("time stamp : {:?}", b);
+	//prin_5tln_5!("time stamp : {:?}", ts2-ts1);
 
 }
 }

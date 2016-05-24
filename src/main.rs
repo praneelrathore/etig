@@ -13,26 +13,7 @@ use std::env;
 
 static mut gra: [[i32;350];350] = [[0;350];350];
 
-use etig::samarth;
-use etig::praneel;
-use etig::vaibhav;
-use etig::eti11;
-use etig::yash;
-use etig::d_raj_radio_coloring;
-use etig::d_raj_graph_coloring;
-use etig::rahlav;
-use etig::apurv;
-use etig::rahul_073;
-use etig::kamal;
-use etig::akash_floydwarshall;
-use etig::sameer;
-use etig::hima;
-use etig::cycle_detection;
-use etig::manav_final;
-use etig::bipartite_43_181;
-use etig::cyc_det_directed_y2k;
-use etig::istree;
-
+use etig::parallel;
 
 fn get_node_173<R:Read>(reader:R)->i32 {
   let mut reader = BufReader::new(reader).lines();
@@ -85,25 +66,24 @@ fn main() {
 
 /****************************Uncomment any function to use here****************************************/
 
-   //samarth::bellman_ford_110(&mut gra,na);
-   //praneel::dfsutil_034(&mut gra, na);
-   //vaibhav::solve_bfs(&mut gra, na);
-   //d_raj_radio_coloring::radiocoloring(&mut gra, na);
-   //d_raj_graph_coloring::graphcoloring(&mut gra, na);
-   //rahlav::solve_062(&mut gra, na);
-   //yash::caller_105(&mut gra, na);
-   //eti11::input(&mut gra,na);
-   //apurv::count_ways(&mut gra, na);
-   //rahul_073::conn_comp_073(&mut gra, na);
-  // kamal::caller_54(&mut gra, na);
-   //akash_floydwarshall::floydwarshall_207(&mut gra, na);
-   //sameer::johnson(&mut gra, na);
-  //hima::func(&mut gra, na);
-   //cycle_detection::cycle_detection(&mut gra, na);
-   //manav_final::solve_173(&mut gra, na);
-   //bipartite_43_181::check_bipartite(&mut gra, na);
-   //cyc_det_directed_y2k::cyc_det_directed_y2k(&mut gra, na);
-   istree::check_tree( &mut gra,na);
+  //parallel::bellman_ford_110(&mut gra,na);
+  // parallel::dfsutil_034(&mut gra, na);
+   //parallel::solve_bfs(&mut gra, na);
+   //parallel::radiocoloring(&mut gra, na);
+  // parallel::graphcoloring(&mut gra, na);
+   //parallel::solve_062(&mut gra, na);
+   //parallel::caller_105(&mut gra, na);
+   //parallel::input_1111(&mut gra,na);
+   //parallel::count_ways(&mut gra, na);
+   //parallel::conn_comp_073(&mut gra, na);
+    //parallel::caller_54(&mut gra, na);
+   //parallel::floydwarshall_207(&mut gra, na);
+   //parallel::johnson(&mut gra, na);
+  //parallel::func(&mut gra, na);
+  //parallel::cycle_detection(&mut gra, na);
+   //parallel::solve_173(&mut gra, na);
+   //parallel::check_bipartite(&mut gra, na);
+   parallel::cyc_det_directed_y2k(&mut gra, na);
 }
 
 
