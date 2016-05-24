@@ -361,7 +361,7 @@ pub fn check_bipartite(matrix: &mut [[i32; 350]; 350], n_tmp: i32) -> () {
     	for i in 0..n43 {
 		for j in i..n43 {
 			if adj43[i as usize][j as usize] != adj43[j as usize][i as usize] {
-				println!("error: input does not contain undirected graph\n")
+				println!("error: input does not contain undirected graph\n");
 				return;
 			}
 		}
