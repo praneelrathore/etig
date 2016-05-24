@@ -107,7 +107,7 @@ static mut nn054:usize = 0;
 static mut DepthOfTree054 :i32 = 0;
 static mut LastNodevisited054 :i32=0;
 
-static mut NTHREADS180 : i32 = 30;
+static mut NTHREADS180 : i32 = 10;
 static mut cnt180: i32 = 1;
 static mut n180: i32 = 0;
 static mut adj180: [[i32; 350]; 350] = [[0 ; 350]; 350];
@@ -354,10 +354,18 @@ pub fn check_bipartite(matrix: &mut [[i32; 350]; 350], n_tmp: i32) -> () {
 
 			     if (x43 != 0) {
       				adj43[i as usize][j as usize] = true;
-	      			adj43[j as usize][i as usize] = true;
 			     }
 		  }
     	}
+    	
+    	for i in 0..n43 {
+		for j in i..n43 {
+			if adj43[i as usize][j as usize] != adj43[j as usize][i as usize] {
+				println!("error: input does not contain undirected graph\n")
+				return;
+			}
+		}
+	}
 
 //	let start = PreciseTime::now();
     	for i in 0..n43 {
@@ -583,16 +591,19 @@ pub fn cycle_detection(mat134180: &mut [[i32; 350]; 350], n1: i32) {
 
 fn dfs134180(crr_nod: i32, crr_par: i32) {
 	unsafe {
-		let mut children = vec![];
-		visited180[crr_nod as usize] = true;
 		if cycle_found180 {
 			return;
 		}
+		
+		let mut children = vec![];
+		visited180[crr_nod as usize] = true;
+		
 		for i in 0..n180 {
 			if cycle_found180 {
 				return;
 			}
-			if adj180[crr_nod as usize][i as usize] == 1 && i != crr_par {
+			
+			if adj180[crr_nod as usize][i as usize] != 0 && i != crr_par {
 				if visited180[i as usize] {
 					//println!("i = {}, crr_nod = {}, crr_par = {}", i, crr_nod, crr_par);
 					cycle_found180 = true;            
