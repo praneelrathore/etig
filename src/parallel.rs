@@ -141,6 +141,100 @@ static mut CYCLE_tonny: bool = false;
 static mut row_del: usize = 0;
 
 
+static mut used_070:[i32; 350]= [0;350];
+static mut v_070:[[i32; 350]; 350] = [[0; 350];350];
+static mut v1_070:[[i32; 350]; 350] = [[0; 350];350];
+static mut n070:i32 = 0;
+
+
+fn dfs_070(i: i32) -> () {
+	unsafe{
+		let data = Arc::new(Mutex::new(used_070));
+		used_070[i as usize]=1;
+		print!("{} ",i);
+		for j in 0..n070 {
+			if v1_070[i as usize][j as usize]==1&&used_070[j as usize]==0 {
+				let data = data.clone();
+				thread::spawn( move || {
+						let mut data = data.lock().unwrap();
+						dfs_070(j);
+						});
+			}
+		}
+	}
+}
+
+fn fillorder_070(mut ans : &mut Vec<i32>,i: i32) -> () {
+	unsafe{
+		used_070[i as usize]=1;
+		for k in 0..n070 {
+			if v_070[i as usize][k as usize]==1&&used_070[k as usize]==0 {
+				fillorder_070(&mut ans,k);
+			}
+		}
+		ans.push(i);
+	}
+}
+
+fn printscc_070() -> () {
+	unsafe{
+		let mut ans:Vec<i32> = Vec::new();
+		for i in 0..n070 {
+			used_070[i as usize]=0;
+		}
+		for i in 0..n070 {
+			if used_070[i as usize]==0 {
+				fillorder_070(&mut ans,i);
+			}
+		}
+		let x = ans.len();
+		ans.reverse();
+		for i in 0..n070 {
+			for j in 0..n070 {
+				v1_070[j as usize][i as usize]=v_070[i as usize][j as usize];
+			}
+		}
+		/*
+		   for i in 0..n070 {
+		   for j in 0..n070 {
+		   print!("{} ",v1_070[i as usize][j as usize]);
+		   }
+		   println!("");
+		   }
+		   for i in 0..n070 {
+		   print!("{} ",ans[i as usize]);
+		   }
+		   println!("");
+		 */
+		for i in 0..n070 {
+			used_070[i as usize]=0;
+		}
+		for i in 0..x {
+			if used_070[ans[i as usize] as usize]==0 {
+				dfs_070(ans[i as usize]);
+				thread::sleep(Duration::from_millis(50));
+				println!("");
+			}
+		}
+	}
+}
+pub fn solve_070(matr: &mut [[i32; 350]; 350], tmp070: i32) -> () {
+		
+		unsafe{
+			
+		n070=10;
+		
+		for i in 0..n070 { 
+		for j in 0..n070 { 
+		v_070[i as usize][j as usize]=matr[i as usize][j as usize]; 
+		} 
+		}
+		printscc_070();
+		
+	 
+}
+
+}
 
 fn is_tree( mut adj_list: &mut Vec< Vec<usize> >,mut visited: &mut Vec<bool>,nodes:usize) {
     unsafe {
