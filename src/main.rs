@@ -1,3 +1,8 @@
+#[allow(unused_mut)]
+#[warn(unused_unsafe)]
+#[warn(unused_imports)]
+#[warn(unused_variables)]
+
 extern crate algorithms;
 
 use std::thread;
