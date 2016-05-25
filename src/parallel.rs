@@ -176,6 +176,8 @@ fn fillorder_070(mut ans : &mut Vec<i32>,i: i32) -> () {
 	}
 }
 
+
+
 fn printscc_070() -> () {
 	unsafe{
 		let mut ans:Vec<i32> = Vec::new();
