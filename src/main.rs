@@ -90,6 +90,7 @@ fn main() {
    //parallel::cyc_det_directed_y2k(&mut gra, na);
    //parallel::check_tree(&mut gra, na);
   // parallel::parallel_bfs_146(&mut gra, na);
+  //	parallel::solve_070(&mut gra, na);
 }
 
 
