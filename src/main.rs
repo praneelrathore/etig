@@ -85,7 +85,7 @@ fn main() {
    //parallel::johnson(&mut gra, na);
   //parallel::func(&mut gra, na);
   //parallel::cycle_detection(&mut gra, na);
-   parallel::transitive_closure(&mut gra, na);
+   //parallel::transitive_closure(&mut gra, na);
    //parallel::check_bipartite(&mut gra, na);
    //parallel::cyc_det_directed_y2k(&mut gra, na);
    //parallel::check_tree(&mut gra, na);
