@@ -85,12 +85,13 @@ fn main() {
    //parallel::johnson(&mut gra, na);
   //parallel::func(&mut gra, na);
   //parallel::cycle_detection(&mut gra, na);
-   //parallel::transitive_closure(&mut gra, na);
+   parallel::transitive_closure(&mut gra, na);
    //parallel::check_bipartite(&mut gra, na);
    //parallel::cyc_det_directed_y2k(&mut gra, na);
    //parallel::check_tree(&mut gra, na);
   // parallel::parallel_bfs_146(&mut gra, na);
   //	parallel::solve_070(&mut gra, na);
+  // parallel::prim_mst(&mut gra, na);
 }
 
 

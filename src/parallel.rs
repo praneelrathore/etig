@@ -14,6 +14,7 @@ use std::str::FromStr;
 use std::io::{BufReader,BufRead,Read,stdin};
 use std::sync::mpsc;
 use std::collections::VecDeque;
+
 use std::sync::
 {
     Arc, Mutex
@@ -145,6 +146,116 @@ static mut used_070:[i32; 350]= [0;350];
 static mut v_070:[[i32; 350]; 350] = [[0; 350];350];
 static mut v1_070:[[i32; 350]; 350] = [[0; 350];350];
 static mut n070:i32 = 0;
+static mut dist_188: [i32; 500] = [9999999; 500];
+static mut marked_188: [i32; 500] = [0; 500];
+static mut per_188: [i32; 500] = [0; 500];
+
+static mut adj_188: [[i32; 500]; 500] = [[0; 500]; 500];
+pub fn prim_mst(matr: &mut [[i32; 500]; 500], n: i32) {
+unsafe{
+  	for i in 0..n {
+      	for j in 0..n {
+      		adj_188[i as usize][j as usize] = matr[i as usize][j as usize];
+      	}
+    }
+
+    let (tx, rx) = mpsc::channel();
+    let mut Vt = Vec::new();
+    
+    let mut cst = 0 ;
+    let mut val : i32 = 0;
+    let mut ver : i32= 0;
+    let mut tper_188 : i32 = 0;
+    let mut nt : f32 = n as f32;
+    let mut start: i32 = 0;
+
+    let mut nm: i32 = nt.sqrt().ceil().abs() as i32;
+    let mut thrd : i32 = nt.sqrt().floor().abs() as i32;
+    //println!("{:?} and {:?}", nm, thrd );
+
+    
+
+    
+
+//    let mut it:i32 = 0;
+  dist_188[start as usize] = 0;
+  per_188[start as usize] = 0;
+  //let start = PreciseTime::now();
+
+  while Vt.len() != n as usize {
+
+    Vt.push(ver);
+    marked_188[ver as usize] = 1;
+    tper_188 = per_188[ver as usize];
+    cst += adj_188[ver as usize][tper_188 as usize];
+    println!(" Node b/w {:?} and {:?} and value {:?}", ver , tper_188, adj_188[ver as usize][tper_188 as usize] );
+
+
+    for x in 0..nm{
+
+      let tx = tx.clone();
+      let mut srt:i32 = x * thrd;
+      let mut fns: i32= x * thrd + thrd;
+      
+      if fns > n{
+
+          fns = n;
+      }
+      //println!("{:?} and {:?} and", srt , fns );
+      thread::spawn(move ||{
+
+        let mut value : i32 = 9999999;
+        let mut Vsend :i32 =  0;
+        for i in srt..fns{
+          
+
+          if marked_188[i as usize] == 0{
+      
+              if adj_188[ver as usize ][i as usize ] < dist_188[i as usize ] && adj_188[ver as usize][i as usize] != 0 {
+
+                dist_188[i as usize] = adj_188[ver as usize][i as usize];
+                per_188[i as usize] = ver;
+            
+              }
+
+              if dist_188[i as usize] < value{
+              value = dist_188[i as usize];
+              Vsend = i;
+              }
+          }
+
+      }
+      tx.send(Vsend).unwrap();
+      //println!("thread {} finished", x);
+      });
+
+    }
+    let mut v : i32 = 0;
+    val =  999999;
+    for _ in 0..nm{
+
+       v = rx.recv().unwrap();
+    
+      if dist_188[v as usize] < val && v != 0 {
+
+        val = dist_188[v as usize];
+        ver = v;
+      }
+            //println!("{}", v);
+      }
+      //println!("{:?}", dist_188);
+      //for i in 0..n {
+     //   print!("{} ", dist_188[i as usize]);
+     // }
+
+  }
+
+    //let end = PreciseTime::now();
+   // println!("{}  seconds for whatever you did.", start.to(end));
+
+      println!(" total cost {}", cst);     
+  }
+}
 
 
 fn dfs_070(i: i32) -> () {
